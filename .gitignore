@@ -1,0 +1,33 @@
+# Ignore environment variable files
+.env
+
+# Ignore node modules
+node_modules/
+
+# Ignore log files
+logs/
+*.log
+
+# Ignore database files
+*.db
+
+# Ignore archive files
+ARCHIVE/
+*.zip
+
+# Ignore script files
+script.sh
+
+# Ignore public and view directories
+public/
+views/
+
+# Ignore package files
+package-lock.json
+package.json
+
+# Ignore miscellaneous temporary files
+*.tmp
+*.bak
+*.swp
+*.swo
