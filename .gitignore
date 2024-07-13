@@ -18,9 +18,6 @@ ARCHIVE/
 # Ignore script files
 script.sh
 
-# Ignore public and view directories
-public/
-views/
 
 # Ignore package files
 package-lock.json

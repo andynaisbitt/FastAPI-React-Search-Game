@@ -1,0 +1,15 @@
+/* theme.css */
+body.math {
+    background-color: #1a237e;
+    color: #fff;
+  }
+  
+  body.science {
+    background-color: #33691e;
+    color: #fff;
+  }
+  
+  body.literature {
+    background-color: #6d4c41;
+    color: #fff;
+  }

@@ -1,0 +1,78 @@
+<footer class="game-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <a href="/">
+          <img src="/img/logo.png" alt="JustFuckingGoogleIt">
+        </a>
+      </div>
+      <div class="footer-links">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <ul>
+          <li>
+            <a href="https://twitter.com/justfckinggoogleit" target="_blank" rel="noopener noreferrer">
+              <img src="/img/twitter-icon.png" alt="Twitter">
+            </a>
+          </li>
+          <li>
+            <a href="https://facebook.com/justfckinggoogleit" target="_blank" rel="noopener noreferrer">
+              <img src="/img/facebook-icon.png" alt="Facebook">
+            </a>
+          </li>
+          <li>
+            <a href="https://instagram.com/justfckinggoogleit" target="_blank" rel="noopener noreferrer">
+              <img src="/img/instagram-icon.png" alt="Instagram">
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-text">
+        <p>&copy; <%= new Date().getFullYear() %> JustFuckingGoogleIt. All rights reserved.</p>
+      </div>
+      <div class="footer-buttons">
+        <button id="resetGame">Reset Game</button>
+        <button id="shareGame">Share Game</button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const resetGameBtn = document.getElementById('resetGame');
+    const shareGameBtn = document.getElementById('shareGame');
+
+    if (resetGameBtn) {
+      resetGameBtn.addEventListener('click', resetGame);
+    }
+
+    if (shareGameBtn) {
+      shareGameBtn.addEventListener('click', shareGame);
+    }
+  });
+
+  function resetGame() {
+    if (typeof window.restartGame === 'function') {
+      window.restartGame();
+    } else {
+      console.error('restartGame function is not defined');
+      location.reload();
+    }
+  }
+
+  function shareGame() {
+    const shareUrl = window.location.href;
+    const shareMessage = 'Check out this fun game on JustFuckingGoogleIt! Can you beat my score?';
+    window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareMessage)}`, '_blank');
+  }
+</script>

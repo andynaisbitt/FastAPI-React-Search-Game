@@ -1,0 +1,28 @@
+.game-hint {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #fff3e0;
+  border-radius: 10px;
+}
+
+.game-hint button {
+  background-color: #ff9800;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.game-hint button:hover {
+  background-color: #f57c00;
+}
+
+.game-hint p {
+  margin-top: 15px;
+  font-size: 18px;
+  color: #ff9800;
+}

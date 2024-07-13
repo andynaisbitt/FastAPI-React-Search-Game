@@ -1,0 +1,141 @@
+/* game.css */
+.game-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .game-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .game-description {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  
+  .progress {
+    width: 100%;
+    height: 100%;
+    background-color: #4caf50;
+    transition: width 0.5s ease;
+  }
+  
+  .score-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .score-label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .score {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .hint-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #2196f3;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .end-game-message {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .original-url-link {
+    display: block;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #2196f3;
+    text-decoration: none;
+  }
+  
+  .restart-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .search-results ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .search-results li {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  .search-result-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .search-result-link {
+    font-weight: bold;
+    color: #2196f3;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .search-result-snippet {
+    margin: 0;
+  }
+  
+  .correct-answer-notification {
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
+  }

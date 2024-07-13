@@ -1,0 +1,96 @@
+.rules-game {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.rules-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.rules-header h2 {
+  font-size: 28px;
+  color: #4285f4;
+}
+
+.skip-rules-btn {
+  background-color: #ff5722;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.skip-rules-btn:hover {
+  background-color: #e64a19;
+}
+
+.rules-content ul {
+  list-style: none;
+  margin-bottom: 30px;
+}
+
+.rules-content li {
+  margin-bottom: 15px;
+  padding-left: 30px;
+  position: relative;
+}
+
+.rules-content li:before {
+  content: '•';
+  color: #4285f4;
+  font-size: 24px;
+  position: absolute;
+  left: 0;
+  top: -5px;
+}
+
+.countdown {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.countdown p {
+  font-size: 24px;
+  color: #4285f4;
+  margin-bottom: 10px;
+}
+
+.countdown-animation {
+  height: 5px;
+  background-color: #4285f4;
+  border-radius: 5px;
+  animation: countdown 5s linear;
+}
+
+@keyframes countdown {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+.start-game-btn {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.start-game-btn:hover {
+  background-color: #45a049;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haha, Got You! - JustFuckingGoogleIt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="logo">
+        <img src="/img/logo.png" alt="JustFuckingGoogleIt">
+      </a>
+      <ul>
+        <li><a href="#" id="themeToggle">Change Theme</a></li>
+        <li><a href="#" id="characterToggle">Change Character</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="hero ad-hero">
+      <div class="character">
+        <img src="https://justfuckinggoogleit.co.uk/img/bart-simpson.png" alt="Character" id="characterImage">
+        <canvas id="chalkboardCanvas"></canvas>
+      </div>
+      <div class="message-container">
+        <div class="message-wrapper">
+          <h1 class="ad-heading">Haha, Got You!</h1>
+          <p class="message">Your friend sent you a JFGI link. Now you're here, laughing at yourself.</p>
+          <p class="message">Don't worry, we won't leave you hanging. You can still find what you're looking for.</p>
+        </div>
+      </div>
+    </section>
+    <div class="container ad-container">
+      <form action="/search" method="get" class="ad-search-form">
+        <div class="search-bar">
+          <input type="text" name="q" placeholder="Search on Google..." aria-label="Search on Google">
+          <button type="submit" aria-label="Search">
+            <img src="/img/search-icon.png" alt="Search">
+          </button>
+        </div>
+      </form>
+      <a href="<%= longUrl %>" class="original-url-link">Click here to go to the original URL</a>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2024 JustFuckingGoogleIt</p>
+  </footer>
+  <script src="/js/main.js"></script>
+  <script src="/js/chalkboard.js"></script>
+</body>
+</html>

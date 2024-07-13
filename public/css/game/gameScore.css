@@ -1,0 +1,13 @@
+.game-score {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .game-score p {
+    font-size: 18px;
+  }
+  
+  .game-score .score {
+    font-size: 24px;
+    font-weight: bold;
+  }

@@ -1,0 +1,14 @@
+/* game-features.css */
+.hint {
+    background-color: #ffeb3b;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  .error {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+  }

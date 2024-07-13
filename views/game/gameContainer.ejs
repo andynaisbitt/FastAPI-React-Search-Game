@@ -1,0 +1,30 @@
+<!-- views/game/gameContainer.ejs -->
+<div class="game-container" id="gameContainer">
+  <div id="gameWrapper">
+    <div id="rulesArea" class="game-section">
+      <%- include('rulesGame') %>
+    </div>
+    
+    <div id="gameArea" class="game-section" style="display: none;">
+      <div class="game-header">
+        <%- include('gameTimer') %>
+        <%- include('gameScore') %>
+      </div>
+      
+      <div class="game-main">
+        <%- include('gameSearch') %>
+        <div id="searchResults" class="search-results"></div>
+      </div>
+      
+      <div class="game-footer">
+        <%- include('gameHint') %>
+      </div>
+    </div>
+  </div>
+  
+  <%- include('endGameModal') %>
+</div>
+
+<div id="chalkboardArea" class="chalkboard-container">
+  <canvas id="chalkboardCanvas"></canvas>
+</div>

@@ -1,0 +1,78 @@
+.game-container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.game-hero {
+  background-color: #4285f4;
+  padding: 40px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.character {
+  margin-bottom: 30px;
+}
+
+.character img {
+  max-width: 200px;
+  height: auto;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.game-heading {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.game-description {
+  font-size: 18px;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.game-content {
+  padding: 40px;
+}
+
+.progress-bar {
+  height: 10px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background-color: #4caf50;
+  border-radius: 5px;
+  transition: width 0.5s ease;
+}
+
+.score-container {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.hint-button {
+  background-color: #ff9800;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.hint-button:hover {
+  background-color: #f57c00;
+}
