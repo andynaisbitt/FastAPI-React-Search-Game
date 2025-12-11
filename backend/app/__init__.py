@@ -1,0 +1,1 @@
+"""JFGI Backend Application"""

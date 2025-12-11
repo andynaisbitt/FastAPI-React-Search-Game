@@ -1,0 +1,50 @@
+# Systemd service file for JFGI
+# Place this file in /etc/systemd/system/jfgi.service
+# Enable: sudo systemctl enable jfgi
+# Start: sudo systemctl start jfgi
+# Status: sudo systemctl status jfgi
+# Logs: sudo journalctl -u jfgi -f
+
+[Unit]
+Description=JFGI - Just Fucking Google It (URL Shortening Game)
+Documentation=https://github.com/andynaisbitt/jfgi
+After=network.target postgresql.service
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/jfgi
+Environment="NODE_ENV=production"
+Environment="PORT=3000"
+
+# Load environment variables from file
+EnvironmentFile=/var/www/jfgi/.env
+
+# Start command
+ExecStart=/usr/bin/node /var/www/jfgi/server.js
+
+# Restart policy
+Restart=on-failure
+RestartSec=10
+StartLimitInterval=60
+StartLimitBurst=3
+
+# Security hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/www/jfgi/data /var/www/jfgi/logs
+
+# Resource limits
+LimitNOFILE=65536
+LimitNPROC=512
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=jfgi
+
+[Install]
+WantedBy=multi-user.target

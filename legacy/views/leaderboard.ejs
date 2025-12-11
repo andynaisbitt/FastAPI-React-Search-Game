@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🏆 Leaderboard - <%= shortCode %> | JFGI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .leaderboard-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 10px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .difficulty-badge {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 30px;
+      padding: 15px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .stats-summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .leaderboard-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .leaderboard-table thead {
+      background: #667eea;
+      color: white;
+    }
+
+    .leaderboard-table th {
+      padding: 15px;
+      text-align: left;
+      font-weight: bold;
+    }
+
+    .leaderboard-table tbody tr {
+      border-bottom: 1px solid #eee;
+      transition: background 0.2s;
+    }
+
+    .leaderboard-table tbody tr:hover {
+      background: #f5f7fa;
+    }
+
+    .leaderboard-table td {
+      padding: 15px;
+    }
+
+    .rank {
+      font-weight: bold;
+      font-size: 20px;
+      color: #667eea;
+    }
+
+    .rank-1 { color: #FFD700; } /* Gold */
+    .rank-2 { color: #C0C0C0; } /* Silver */
+    .rank-3 { color: #CD7F32; } /* Bronze */
+
+    .score {
+      font-weight: bold;
+      color: #28a745;
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 40px;
+      color: #999;
+      font-size: 18px;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 30px;
+      background: #667eea;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+
+    .back-button:hover {
+      background: #764ba2;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="leaderboard-container">
+    <h1>🏆 Leaderboard</h1>
+
+    <div class="difficulty-badge">
+      <%= difficultyIcon %> <%= difficultyName %> Challenge
+    </div>
+
+    <% if (summary) { %>
+      <div class="stats-summary">
+        <div class="stat-card">
+          <div class="stat-value"><%= summary.totalViews || 0 %></div>
+          <div class="stat-label">Total Attempts</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value"><%= summary.totalCompletions || 0 %></div>
+          <div class="stat-label">Completions</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value"><%= summary.completionRate ? summary.completionRate.toFixed(1) : 0 %>%</div>
+          <div class="stat-label">Success Rate</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value"><%= summary.avgCompletionTime ? summary.avgCompletionTime.toFixed(1) : 0 %>s</div>
+          <div class="stat-label">Avg. Time</div>
+        </div>
+      </div>
+    <% } %>
+
+    <% if (leaderboard && leaderboard.length > 0) { %>
+      <table class="leaderboard-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Player</th>
+            <th>Time</th>
+            <th>Hints Used</th>
+            <th>Score</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% leaderboard.forEach(entry => { %>
+            <tr>
+              <td class="rank rank-<%= entry.rank %>">
+                <% if (entry.rank === 1) { %>
+                  🥇
+                <% } else if (entry.rank === 2) { %>
+                  🥈
+                <% } else if (entry.rank === 3) { %>
+                  🥉
+                <% } %>
+                #<%= entry.rank %>
+              </td>
+              <td>
+                <%= entry.playerNickname %>
+                <% if (entry.playerCountry) { %>
+                  <span style="margin-left: 5px; opacity: 0.7;"><%= entry.playerCountry %></span>
+                <% } %>
+              </td>
+              <td><%= entry.completionTime.toFixed(1) %>s</td>
+              <td><%= entry.hintsUsed %></td>
+              <td class="score"><%= entry.score %></td>
+              <td><%= new Date(entry.completedAt * 1000).toLocaleDateString() %></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <div class="no-results">
+        <p>📊 No completions yet. Be the first to complete this challenge!</p>
+      </div>
+    <% } %>
+
+    <div style="text-align: center;">
+      <a href="/" class="back-button">← Back to Home</a>
+      <a href="/shorturl/<%= shortCode %>" class="back-button">🎮 Try Challenge</a>
+    </div>
+  </div>
+</body>
+</html>

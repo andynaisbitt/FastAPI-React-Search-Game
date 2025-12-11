@@ -1,0 +1,82 @@
+/* Import Google Fonts - must come first! */
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables for theming */
+:root {
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f5f5f5;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #666666;
+  --color-accent: #2563eb;
+  --color-chalkboard-bg: #2F5233;
+  --color-chalkboard-text: #F5F5F5;
+}
+
+.dark {
+  --color-bg-primary: #1a1a1a;
+  --color-bg-secondary: #2a2a2a;
+  --color-text-primary: #f5f5f5;
+  --color-text-secondary: #a0a0a0;
+  --color-accent: #3b82f6;
+  --color-chalkboard-bg: #1a1a1a;
+  --color-chalkboard-text: #f5f5f5;
+}
+
+.theme-christmas {
+  --color-bg-primary: #0f1419;
+  --color-bg-secondary: #1a2027;
+  --color-text-primary: #f5f5f5;
+  --color-accent: #ff0000;
+  --color-chalkboard-bg: #165a3c;
+}
+
+.theme-newyear {
+  --color-bg-primary: #0a0a0a;
+  --color-bg-secondary: #1a1a1a;
+  --color-text-primary: #ffd700;
+  --color-accent: #ffd700;
+  --color-chalkboard-bg: #1a1a1a;
+  --color-chalkboard-text: #ffd700;
+}
+
+/* Base styles */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Chalkboard texture */
+.chalkboard {
+  background-color: var(--color-chalkboard-bg);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 20px 20px;
+  color: var(--color-chalkboard-text);
+  font-family: 'Architects Daughter', cursive;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-secondary);
+}

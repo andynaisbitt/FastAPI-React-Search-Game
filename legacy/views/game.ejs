@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JustFuckingGoogleIt - Find the Original URL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/game/base.css">
+  <link rel="stylesheet" href="/css/game/header.css">
+  <link rel="stylesheet" href="/css/game/gameContainer.css">
+  <link rel="stylesheet" href="/css/game/searchResults.css">
+  <link rel="stylesheet" href="/css/game/gameHint.css">
+  <link rel="stylesheet" href="/css/game/gameScore.css">
+  <link rel="stylesheet" href="/css/game/gameTimer.css">
+  <link rel="stylesheet" href="/css/game/rulesGame.css">
+  <link rel="stylesheet" href="/css/game/endGameModal.css">
+  <link rel="stylesheet" href="/css/game/chalkboard.css">
+  <link rel="stylesheet" href="/css/game/footer.css">
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+
+  <!-- AdSense Script (if enabled) -->
+  <% if (typeof adsEnabled !== 'undefined' && adsEnabled && process.env.ADSENSE_CLIENT_ID) { %>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=<%= process.env.ADSENSE_CLIENT_ID %>"
+         crossorigin="anonymous"></script>
+  <% } %>
+
+  <style>
+    /* Ad Container Styles */
+    .ad-banner-before {
+      text-align: center;
+      margin: 20px auto;
+      padding: 10px;
+      background: #f5f5f5;
+      border-radius: 8px;
+    }
+
+    .ad-placeholder {
+      display: inline-block;
+      background: #e0e0e0;
+      color: #666;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px dashed #999;
+    }
+  </style>
+</head>
+<body>
+  <!-- Banner Ad (Before Challenge) -->
+  <% if (typeof adPlacements !== 'undefined' && adPlacements.includes('banner_before')) { %>
+    <div class="ad-banner-before">
+      <div class="ad-placeholder" style="width:728px;height:90px;margin:0 auto;">
+        📢 Advertisement (728x90)
+      </div>
+    </div>
+  <% } %>
+
+  <header>
+    <%- include('game/header') %>
+  </header>
+
+  <main id="game-container" style="display: flex; gap: 20px;">
+    <!-- Sidebar Ad (During Challenge) -->
+    <% if (typeof adPlacements !== 'undefined' && adPlacements.includes('sidebar_during')) { %>
+      <aside class="ad-sidebar" style="flex-shrink: 0;">
+        <div class="ad-placeholder" style="width:160px;height:600px;">
+          <span style="writing-mode: vertical-rl; text-orientation: mixed;">📢 Ad (160x600)</span>
+        </div>
+      </aside>
+    <% } %>
+
+    <div style="flex: 1;">
+      <%- include('game/gameContainer') %>
+    </div>
+  </main>
+  
+  <footer>
+    <%- include('game/footer') %>
+  </footer>
+  
+  <%- include('game/endGameModal') %>
+  
+  <!-- Interstitial Ad Modal (After Completion) -->
+  <div id="adInterstitial" class="ad-interstitial" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:10000; align-items:center; justify-content:center;">
+    <div style="background:white; padding:40px; border-radius:10px; text-align:center;">
+      <div class="ad-placeholder" style="width:336px;height:280px;margin:0 auto 20px;">
+        📢 Advertisement (336x280)
+      </div>
+      <p id="adCountdown" style="color:#666; font-size:14px;">Redirecting in 3 seconds...</p>
+    </div>
+  </div>
+
+  <div id="gameStateData"
+       data-unique-id="<%= encodeURIComponent(uniqueId) %>"
+       data-short-code="<%= encodeURIComponent(shortCode) %>"
+       data-long-url="<%= encodeURIComponent(longUrl) %>"
+       data-game-question="<%= encodeURIComponent(gameQuestion) %>"
+       data-search-operators="<%= encodeURIComponent(JSON.stringify(searchOperators)) %>"
+       data-difficulty="<%= typeof difficulty !== 'undefined' ? difficulty : 'medium' %>"
+       data-time-limit="<%= typeof timeLimit !== 'undefined' ? timeLimit : 120 %>"
+       data-max-hints="<%= typeof maxHints !== 'undefined' ? maxHints : 3 %>"
+       data-session-id="<%= typeof sessionId !== 'undefined' ? sessionId : '' %>"
+       data-ads-enabled="<%= typeof adsEnabled !== 'undefined' ? adsEnabled : false %>">
+  </div>
+  
+  <script src="/js/game/gameState.js"></script>
+  <script src="/js/game/rulesGame.js"></script>
+  <script src="/js/game/gameTimer.js"></script>
+  <script src="/js/game/gameScore.js"></script>
+  <script src="/js/game/gameSearch.js"></script>
+  <script src="/js/game/gameHint.js"></script>
+  <script src="/js/game/endGameModal.js"></script>
+  <script src="/js/chalkboard.js"></script>
+  <script src="/js/game/main.js"></script>
+  <script src="/js/game/gameContainer.js"></script>
+  <script src="/js/game/gameInitialization.js"></script>
+</body>
+</html>

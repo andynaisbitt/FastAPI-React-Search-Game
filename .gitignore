@@ -1,30 +1,273 @@
-# Ignore environment variable files
+# ========================
+# JFGI - Comprehensive .gitignore
+# ========================
+
+# ============ SENSITIVE FILES ============
+# Environment variables (CRITICAL - DO NOT COMMIT)
 .env
+.env.local
+.env.development
+.env.production
+.env.test
+*.env
+backend/.env
+backend/.env.*
+frontend/.env
+frontend/.env.*
 
-# Ignore node modules
-node_modules/
+# Secrets and credentials
+*.pem
+*.key
+*.crt
+*.cert
+secrets/
+credentials/
+*.secret
 
-# Ignore log files
+# ============ DATABASES ============
+# SQLite databases
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-wal
+*.db-shm
+backend/*.db
+backend/*.sqlite
+jfgi_dev.db
+
+# PostgreSQL dumps
+*.sql
+*.dump
+
+# ============ LOGS ============
+# All log files
 logs/
 *.log
+*.log.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+error.log
+combined.log
+access.log
+debug.log
+backend/logs/
+frontend/logs/
 
-# Ignore database files
-*.db
+# ============ PYTHON/FASTAPI ============
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
 
-# Ignore archive files
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+backend/venv/
+backend/env/
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# ============ NODE.JS/NPM ============
+# Dependencies
+node_modules/
+jspm_packages/
+frontend/node_modules/
+
+# npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Testing
+coverage/
+
+# Production
+dist/
+build/
+
+# Misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ============ REACT/VITE ============
+# Vite
+frontend/dist
+frontend/.vite
+frontend/dist-ssr
+*.local
+
+# ============ IDE & EDITORS ============
+# VSCode
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ============ OS FILES ============
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+
+# ============ DOCKER ============
+# Docker volumes
+docker-compose.override.yml
+*.override.yml
+
+# ============ MISC ============
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.swp
+nul
+
+# Archive files
 ARCHIVE/
 *.zip
 
-# Ignore script files
-script.sh
+# ============ LEGACY ============
+# Legacy Node.js app (archived)
+legacy/node_modules/
+legacy/*.log
+legacy/.env
 
+# ============ CLAUDE CODE ============
+# Claude Code CLI files (development tool)
+.claude/
 
-# Ignore package files
-package-lock.json
-package.json
-
-# Ignore miscellaneous temporary files
-*.tmp
-*.bak
-*.swp
-*.swo
+# ============ KEEP THESE ============
+# Force include important files
+!.gitkeep
+!.env.example
+!README.md
+!LICENSE

@@ -1,0 +1,32 @@
+feat: modernize architecture and prepare for production
+
+Major repository restructure focusing on modern full-stack development:
+
+Architecture Changes:
+- Migrate from Node.js/Express to Python FastAPI backend
+- Modernize frontend with React 18 + TypeScript + Vite
+- Archive legacy Node.js code to legacy/ folder for reference
+- Implement WebSocket support for real-time leaderboards
+
+Security & Best Practices:
+- Add comprehensive .gitignore covering all sensitive files
+- Create .env.example templates for safe configuration
+- Remove all environment variables and secrets from repository
+- Clean up generated files and build artifacts
+
+Documentation:
+- Complete rewrite of README.md with professional formatting
+- Reorganize 28+ documentation files to docs/ folder
+- Add clear architecture diagrams and setup instructions
+- Include API documentation and deployment guides
+
+Features:
+- Global leaderboard with time filtering (all/week/today)
+- User nickname persistence with localStorage
+- Real-time score updates via WebSockets
+- Comprehensive analytics and scoring system
+- Difficulty levels with progressive hints
+- Profanity filtering for user-generated content
+
+This version represents a complete modernization of the codebase,
+focusing on current industry best practices and production readiness.
