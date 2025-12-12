@@ -1,0 +1,4 @@
+# ads.txt file for Google AdSense
+# Authorizes Google to sell ads on this site
+
+google.com, pub-2550671888534125, DIRECT, f08c47fec0942fa0
